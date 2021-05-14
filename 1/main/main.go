@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/n0fr1/-n0fr1-go-homework-2-reflex-7hw-/1/convertMapToStruct"
+	"github.com/n0fr1/-n0fr1-go-homework-2-reflex-7hw-/1/fillStructFromMap"
 )
 
-type St struct {
+type Person struct {
 	Name     string
 	LastName string
 	Age      int
@@ -14,7 +14,7 @@ type St struct {
 
 func main() {
 
-	var st St
+	var stPerson Person
 
 	mp := map[string]interface{}{
 		"Name":    "John",
@@ -22,7 +22,7 @@ func main() {
 		"married": true,
 	}
 
-	err := convertMapToStruct.MapToStruct(&st, mp)
+	err := fillStructFromMap.MapToStruct(&stPerson, mp)
 
-	fmt.Printf("STRUCT: %#v\nERR: %s\n", st, err)
+	fmt.Printf("STRUCT: %#v\nERR: %s\n", stPerson, err)
 }

@@ -1,4 +1,4 @@
-package convertMapToStruct
+package fillStructFromMap
 
 import (
 	"errors"
