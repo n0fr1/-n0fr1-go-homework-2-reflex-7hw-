@@ -1,33 +1,11 @@
-package main
+package convertMapToStruct
 
 import (
 	"errors"
-	"fmt"
 	"reflect"
 )
 
-type St struct {
-	Name     string
-	LastName string
-	Age      int
-}
-
-func main() {
-
-	var st St
-
-	mp := map[string]interface{}{
-		"Name":    "John",
-		"Age":     30,
-		"married": true,
-	}
-
-	err := mapToStruct(&st, mp)
-
-	fmt.Printf("STRUCT: %#v\nERR: %s\n", st, err)
-}
-
-func mapToStruct(in interface{}, values map[string]interface{}) error {
+func MapToStruct(in interface{}, values map[string]interface{}) error {
 
 	valueOf := reflect.ValueOf(in)
 	if valueOf.Kind() != reflect.Ptr {
