@@ -26,8 +26,9 @@ func MapToStruct(in interface{}, values map[string]interface{}) error {
 		if val, ok := values[field.Name]; ok {
 
 			mfv := reflect.ValueOf(val)
+
 			if mfv.Kind() != fv.Kind() {
-				return errors.New("incomatible type for " + field.Name)
+				return errors.New("incompatible type for " + field.Name + " types: " + mfv.Type().Name() + "," + fv.Type().Name())
 			}
 
 			fv.Set(mfv)
